@@ -197,6 +197,10 @@ curl -X POST http://localhost:5000/api/auth/register \
 
 Connecte-toi ensuite avec cet email et ce mot de passe depuis l'écran de connexion du frontend web ou de l'application mobile.
 
+## Documentation de l'API
+
+La liste complète des endpoints (méthode, route, authentification requise, corps de requête et exemples de réponses succès/erreur) est disponible dans [docs/API.md](docs/API.md).
+
 ## Fonctionnalités
 
 - **Authentification** : inscription et connexion sécurisées (mot de passe hashé avec bcrypt, session gérée par token JWT)
