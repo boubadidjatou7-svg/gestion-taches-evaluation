@@ -204,6 +204,13 @@ curl -X POST http://localhost:5000/api/auth/register \
 
 Connecte-toi ensuite avec cet email et ce mot de passe depuis l'écran de connexion du frontend web ou de l'application mobile.
 
+### Compte de démonstration
+
+Pour tester rapidement l'application déployée sans créer de compte, utilise ces identifiants directement sur [https://gestion-taches-evaluation.vercel.app/login](https://gestion-taches-evaluation.vercel.app/login) — aucune configuration supplémentaire n'est nécessaire :
+
+- **Email** : `demo@evaluation.com`
+- **Mot de passe** : `Demo@Eval2026!`
+
 ## Documentation de l'API
 
 La liste complète des endpoints (méthode, route, authentification requise, corps de requête et exemples de réponses succès/erreur) est disponible dans [docs/API.md](docs/API.md).
