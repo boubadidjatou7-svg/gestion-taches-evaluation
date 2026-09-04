@@ -12,6 +12,13 @@ Le projet est découpé en trois applications indépendantes qui consomment la m
 - **frontend-web** — client web (React)
 - **mobile-app** — client mobile (React Native / Expo)
 
+## Déploiement
+
+- **Frontend web** : [https://gestion-taches-evaluation.vercel.app](https://gestion-taches-evaluation.vercel.app)
+- **API backend** : [https://gestion-taches-evaluation-production.up.railway.app](https://gestion-taches-evaluation-production.up.railway.app)
+
+L'application mobile n'est pas publiée sur les stores (App Store / Google Play) — hors périmètre de cette évaluation. Elle reste à tester en local avec Expo Go, voir la section [Lancement de l'application Mobile](#lancement-de-lapplication-mobile).
+
 ## Technologies utilisées
 
 | Domaine       | Technologies                                      |
