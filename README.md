@@ -192,7 +192,7 @@ Conformément au cahier des charges, le frontend web et l'application mobile n'e
 ```bash
 curl -X POST http://localhost:5000/api/auth/register \
   -H "Content-Type: application/json" \
-  -d '{"full_name":"Jean Dupont","email":"jean@test.com","password":"password123"}'
+  -d '{"full_name":"Nom Utilisateur","email":"utilisateur@exemple.com","password":"password123"}'
 ```
 
 Connecte-toi ensuite avec cet email et ce mot de passe depuis l'écran de connexion du frontend web ou de l'application mobile.

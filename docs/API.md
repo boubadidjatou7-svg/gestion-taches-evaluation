@@ -25,8 +25,8 @@ Crée un nouveau compte utilisateur.
 **Corps de la requête**
 ```json
 {
-  "full_name": "Jean Dupont",
-  "email": "jean@test.com",
+  "full_name": "Nom Utilisateur",
+  "email": "utilisateur@exemple.com",
   "password": "password123"
 }
 ```
@@ -60,7 +60,7 @@ Authentifie un utilisateur et retourne un token JWT.
 **Corps de la requête**
 ```json
 {
-  "email": "jean@test.com",
+  "email": "utilisateur@exemple.com",
   "password": "password123"
 }
 ```
@@ -72,8 +72,8 @@ Authentifie un utilisateur et retourne un token JWT.
   "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9...",
   "user": {
     "id": 5,
-    "full_name": "Jean Dupont",
-    "email": "jean@test.com"
+    "full_name": "Nom Utilisateur",
+    "email": "utilisateur@exemple.com"
   }
 }
 ```

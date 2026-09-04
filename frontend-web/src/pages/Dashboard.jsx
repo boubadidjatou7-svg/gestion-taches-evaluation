@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import { LogOut } from 'lucide-react';
+import { LogOut, ListChecks } from 'lucide-react';
 import api from '../api/axios';
 import { useAuth } from '../context/AuthContext';
 import TaskForm from '../components/TaskForm';
@@ -86,16 +86,21 @@ export default function Dashboard() {
   }
 
   return (
-    <div className="min-h-screen bg-gray-100">
-      <header className="bg-white border-b border-gray-200">
-        <div className="max-w-3xl mx-auto px-4 py-4 flex items-center justify-between">
-          <div>
-            <h1 className="text-xl font-bold text-gray-800">Mes tâches</h1>
-            {user && <p className="text-sm text-gray-500">Connecté en tant que {user.full_name}</p>}
+    <div className="min-h-screen bg-slate-900">
+      <header className="bg-gradient-to-r from-cyan-600 to-blue-600 shadow-md">
+        <div className="max-w-3xl mx-auto px-4 py-5 flex items-center justify-between">
+          <div className="flex items-center gap-3">
+            <div className="w-10 h-10 rounded-xl bg-white/15 flex items-center justify-center shrink-0">
+              <ListChecks size={20} className="text-white" />
+            </div>
+            <div>
+              <h1 className="text-xl font-extrabold text-white tracking-tight">Mes tâches</h1>
+              {user && <p className="text-sm text-cyan-100">Connecté en tant que {user.full_name}</p>}
+            </div>
           </div>
           <button
             onClick={logout}
-            className="flex items-center gap-1.5 text-sm px-4 py-2 rounded-lg text-gray-600 hover:bg-gray-100 transition-colors"
+            className="flex items-center gap-1.5 text-sm px-4 py-2 rounded-lg text-white/90 hover:bg-white/15 transition-colors"
           >
             <LogOut size={16} />
             Déconnexion
@@ -107,13 +112,13 @@ export default function Dashboard() {
         <TaskForm onSubmit={handleAddTask} />
 
         {loadError && (
-          <p className="text-sm text-red-600 bg-red-50 rounded-md px-3 py-2">{loadError}</p>
+          <p className="text-sm text-red-400 bg-red-950/50 rounded-md px-3 py-2">{loadError}</p>
         )}
 
         {loading ? (
-          <p className="text-center text-gray-500 py-8">Chargement...</p>
+          <p className="text-center text-gray-400 py-8">Chargement...</p>
         ) : tasks.length === 0 ? (
-          <p className="text-center text-gray-500 py-8">Aucune tâche pour le moment.</p>
+          <p className="text-center text-gray-400 py-8">Aucune tâche pour le moment.</p>
         ) : (
           <div className="space-y-3">
             {tasks.map((task) => (

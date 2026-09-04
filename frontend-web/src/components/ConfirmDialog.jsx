@@ -6,8 +6,8 @@ export default function ConfirmDialog({ open, title, message, loading, onConfirm
 
   return (
     <div className="fixed inset-0 z-50 flex items-center justify-center p-4">
-      <div className="absolute inset-0 bg-black/40" onClick={loading ? undefined : onCancel} />
-      <div className="relative bg-white rounded-xl shadow-xl max-w-sm w-full p-6">
+      <div className="absolute inset-0 bg-black/50" onClick={loading ? undefined : onCancel} />
+      <div className="relative bg-white rounded-2xl shadow-2xl max-w-sm w-full p-6">
         <div className="flex items-start gap-3">
           <div className="shrink-0 w-10 h-10 rounded-full bg-red-100 flex items-center justify-center">
             <AlertTriangle size={20} className="text-red-600" />

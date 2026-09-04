@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { Pencil, Trash2 } from 'lucide-react';
-import StatusBadge from './StatusBadge';
+import StatusBadge, { getStatusAccent } from './StatusBadge';
 
 const STATUSES = ['En attente', 'En cours', 'Terminé'];
 
@@ -38,24 +38,24 @@ export default function TaskItem({ task, onUpdate, onRequestDelete }) {
 
   if (editing) {
     return (
-      <div className="bg-white rounded-xl shadow-sm border border-gray-200 p-4 space-y-3">
+      <div className="bg-white rounded-2xl shadow-sm border border-gray-200 p-5 space-y-3">
         <input
           type="text"
           value={title}
           onChange={(e) => setTitle(e.target.value)}
-          className="w-full rounded-lg border border-gray-300 px-3 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500"
+          className="w-full rounded-lg border border-gray-300 px-3 py-2 focus:outline-none focus:ring-2 focus:ring-cyan-500 focus:border-cyan-500 transition-shadow"
         />
         <input
           type="text"
           value={description}
           onChange={(e) => setDescription(e.target.value)}
           placeholder="Description"
-          className="w-full rounded-lg border border-gray-300 px-3 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500"
+          className="w-full rounded-lg border border-gray-300 px-3 py-2 focus:outline-none focus:ring-2 focus:ring-cyan-500 focus:border-cyan-500 transition-shadow"
         />
         <select
           value={status}
           onChange={(e) => setStatus(e.target.value)}
-          className="w-full rounded-lg border border-gray-300 px-3 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500"
+          className="w-full rounded-lg border border-gray-300 px-3 py-2 focus:outline-none focus:ring-2 focus:ring-cyan-500 focus:border-cyan-500 transition-shadow"
         >
           {STATUSES.map((s) => (
             <option key={s} value={s}>
@@ -74,7 +74,7 @@ export default function TaskItem({ task, onUpdate, onRequestDelete }) {
           <button
             onClick={handleSave}
             disabled={saving}
-            className="px-4 py-2 rounded-lg bg-blue-600 hover:bg-blue-700 disabled:opacity-50 text-white font-medium transition-colors"
+            className="px-4 py-2 rounded-lg bg-gradient-to-r from-cyan-600 to-blue-600 hover:from-cyan-700 hover:to-blue-700 disabled:opacity-50 text-white font-semibold shadow-sm transition-all"
           >
             {saving ? 'Enregistrement...' : 'Enregistrer'}
           </button>
@@ -84,16 +84,18 @@ export default function TaskItem({ task, onUpdate, onRequestDelete }) {
   }
 
   return (
-    <div className="bg-white rounded-xl shadow-sm border border-gray-200 p-4 flex items-start justify-between gap-3">
+    <div
+      className={`bg-white rounded-2xl shadow-sm hover:shadow-md border border-gray-100 border-l-4 ${getStatusAccent(task.status)} p-5 flex items-start justify-between gap-3 transition-shadow`}
+    >
       <div className="flex-1 min-w-0">
         <div className="flex items-center gap-2 flex-wrap">
-          <h3 className="font-semibold text-gray-800 break-words">{task.title}</h3>
+          <h3 className="font-semibold text-gray-900 break-words">{task.title}</h3>
           <StatusBadge status={task.status} />
         </div>
         {task.description && (
-          <p className="text-sm text-gray-500 mt-1 break-words">{task.description}</p>
+          <p className="text-sm text-gray-500 mt-1.5 break-words">{task.description}</p>
         )}
-        <p className="text-xs text-gray-400 mt-1">Créée le {formattedDate}</p>
+        <p className="text-xs text-gray-400 mt-2">Créée le {formattedDate}</p>
       </div>
 
       <div className="flex items-center gap-1 shrink-0">
@@ -101,7 +103,7 @@ export default function TaskItem({ task, onUpdate, onRequestDelete }) {
           onClick={() => setEditing(true)}
           aria-label="Modifier la tâche"
           title="Modifier"
-          className="p-2 rounded-lg text-blue-600 hover:bg-blue-50 transition-colors"
+          className="p-2 rounded-lg text-cyan-600 hover:bg-cyan-50 transition-colors"
         >
           <Pencil size={18} />
         </button>

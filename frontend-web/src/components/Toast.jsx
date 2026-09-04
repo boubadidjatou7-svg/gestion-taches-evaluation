@@ -21,7 +21,7 @@ export default function Toast({ toast, onClose }) {
 
   return (
     <div className="fixed bottom-4 right-4 z-50">
-      <div className={`${bg} text-white rounded-lg shadow-lg px-4 py-3 flex items-center gap-3 max-w-sm`}>
+      <div className={`${bg} text-white rounded-xl shadow-xl px-4 py-3 flex items-center gap-3 max-w-sm`}>
         <Icon size={20} className="shrink-0" />
         <p className="text-sm font-medium">{toast.message}</p>
         <button onClick={onClose} className="shrink-0 opacity-80 hover:opacity-100">

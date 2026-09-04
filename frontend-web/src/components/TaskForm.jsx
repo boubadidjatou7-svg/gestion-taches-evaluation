@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import { Plus } from 'lucide-react';
 
 export default function TaskForm({ onSubmit }) {
   const [title, setTitle] = useState('');
@@ -24,7 +25,7 @@ export default function TaskForm({ onSubmit }) {
   return (
     <form
       onSubmit={handleSubmit}
-      className="bg-white rounded-xl shadow-sm border border-gray-200 p-4 flex flex-col sm:flex-row gap-3"
+      className="bg-cyan-50/60 rounded-2xl shadow-sm border border-cyan-100 p-4 flex flex-col sm:flex-row gap-3"
     >
       <input
         type="text"
@@ -32,21 +33,22 @@ export default function TaskForm({ onSubmit }) {
         value={title}
         onChange={(e) => setTitle(e.target.value)}
         placeholder="Titre de la tâche"
-        className="flex-1 rounded-lg border border-gray-300 px-3 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500"
+        className="flex-1 rounded-lg border border-gray-300 bg-white px-3 py-2 focus:outline-none focus:ring-2 focus:ring-cyan-500 focus:border-cyan-500 transition-shadow"
       />
       <input
         type="text"
         value={description}
         onChange={(e) => setDescription(e.target.value)}
         placeholder="Description (optionnel)"
-        className="flex-1 rounded-lg border border-gray-300 px-3 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500"
+        className="flex-1 rounded-lg border border-gray-300 bg-white px-3 py-2 focus:outline-none focus:ring-2 focus:ring-cyan-500 focus:border-cyan-500 transition-shadow"
       />
       <button
         type="submit"
         disabled={submitting}
-        className="bg-blue-600 hover:bg-blue-700 disabled:opacity-50 text-white font-medium rounded-lg px-5 py-2 whitespace-nowrap transition-colors"
+        className="flex items-center justify-center gap-1.5 bg-gradient-to-r from-cyan-600 to-blue-600 hover:from-cyan-700 hover:to-blue-700 disabled:opacity-50 text-white font-semibold rounded-lg px-5 py-2 whitespace-nowrap shadow-sm transition-all"
       >
-        + Ajouter
+        <Plus size={16} />
+        Ajouter
       </button>
     </form>
   );
